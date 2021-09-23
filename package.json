@@ -1,0 +1,25 @@
+{
+  "name": "junior",
+  "version": "1.0.0",
+  "description": "Non-C Junior: Automating the lifes work of MVP community member Non Creative Guy.",
+  "main": "junior.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/twohoursonelife/junior.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/twohoursonelife/junior/issues"
+  },
+  "homepage": "https://github.com/twohoursonelife/junior#readme",
+  "dependencies": {
+    "discord.js": "^13.1.0"
+  },
+  "devDependencies": {
+    "eslint": "^7.32.0"
+  }
+}
