@@ -37,7 +37,7 @@ jobs:
       - name: Retireve short SHA
         id: vars
         shell: bash
-        run: git_hash=$(git rev-parse --short "$GITHUB_SHA")
+        run: echo "::set-output name=sha_short::$(git rev-parse --short HEAD)"
 
       - name: Build and push
         id: docker_build
@@ -47,7 +47,7 @@ jobs:
           file: ./Dockerfile
           builder: ${{ steps.buildx.outputs.name }}
           push: true
-          tags: ghcr.io/${{ github.repository }}:${{ github.ref_name }}.${{ GITHUB_SHA }}
+          tags: ghcr.io/${{ github.repository }}:${{ github.ref_name }}.${{ steps.vars.outputs.sha_short }}
           cache-from: type=local,src=/tmp/.buildx-cache
           cache-to: type=local,dest=/tmp/.buildx-cache
 
