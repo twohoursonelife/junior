@@ -1,4 +1,4 @@
-name: Release to GHCR
+name: CI
 
 on:
   push:
