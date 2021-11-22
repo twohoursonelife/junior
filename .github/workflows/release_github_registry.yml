@@ -2,30 +2,43 @@ name: Release to GHCR
 
 on:
   push:
-    branches: [ main ]
-    # Should also trigger from semantic tag on repo and tag the package the same version
+    branches:
+      - '**'
+    tags:
+      - '*.*.*'
+  pull_request:
+    branches:
+      - 'main'
   workflow_dispatch:
 
 jobs:
-
   build:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Check Out Repo
+      - name: Checkout
         uses: actions/checkout@v2
 
-      - name: Set up Docker Buildx
-        id: buildx
-        uses: docker/setup-buildx-action@v1
-
-      - name: Cache Docker layers
-        uses: actions/cache@v2
+      - name: Docker meta
+        id: meta
+        uses: docker/metadata-action@v3
         with:
-          path: /tmp/.buildx-cache
-          key: ${{ runner.os }}-buildx-${{ github.sha }}
-          restore-keys: |
-            ${{ runner.os }}-buildx-
+          # list of Docker images to use as base name for tags
+          images: |
+            {{ github.repository }}
+            ghcr.io/{{ github.repository }}
+          # generate Docker tags based on the following events/attributes
+          tags: |
+            type=schedule
+            type=ref,event=branch
+            type=ref,event=pr
+            type=semver,pattern={{version}}
+            type=semver,pattern={{major}}.{{minor}}
+            type=semver,pattern={{major}}
+            type=sha
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v1
 
       - name: Login to GHCR
         if: github.event_name != 'pull_request'
@@ -35,19 +48,10 @@ jobs:
           username: ${{ github.repository_owner }}
           password: ${{ secrets.GITHUB_TOKEN }}
 
-      #- name: Retireve short SHA
-      #  id: vars
-      #  shell: bash
-      #  run: echo "::set-output name=sha_short::$(git rev-parse --short HEAD)"
-
       - name: Build and push
         uses: docker/build-push-action@v2
         with:
-          context: ./
-          file: ./Dockerfile
-          builder: ${{ steps.buildx.outputs.name }}
-          push: true
-          #tags: ghcr.io/${{ github.repository }}:${{ github.ref_name }}.${{ steps.vars.outputs.sha_short }}
-          tags: ghcr.io/${{ github.repository }}:latest
-          cache-from: type=local,src=/tmp/.buildx-cache
-          cache-to: type=local,dest=/tmp/.buildx-cache
+          context: .
+          push: ${{ github.event_name != 'pull_request' }}
+          tags: ${{ steps.meta.outputs.tags }}
+          labels: ${{ steps.meta.outputs.labels }}
