@@ -52,5 +52,5 @@ jobs:
         with:
           context: .
           push: ${{ github.event_name != 'pull_request' }}
-          tags: ${{ steps.meta.outputs.tags }}, ghcr.io/twohoursonelife/junior:latest-build
+          tags: ${{ steps.meta.outputs.tags }}, ghcr.io/twohoursonelife/junior:latest
           labels: ${{ steps.meta.outputs.labels }}

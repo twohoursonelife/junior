@@ -24,8 +24,6 @@ jobs:
           # generate Docker tags based on the following events/attributes
           tags: |
             type=schedule
-            type=ref,event=branch
-            type=ref,event=pr
             type=semver,pattern={{version}}
             type=semver,pattern={{major}}.{{minor}}
             type=semver,pattern={{major}}
@@ -45,5 +43,5 @@ jobs:
         with:
           context: .
           push: ${{ github.event_name != 'pull_request' }}
-          tags: ${{ steps.meta.outputs.tags }}, connorhsmith/junior:latest-release
+          tags: ${{ steps.meta.outputs.tags }}, connorhsmith/junior:latest
           labels: ${{ steps.meta.outputs.labels }}
