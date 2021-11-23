@@ -1,15 +1,13 @@
-name: Docker Hub Release
+name: Deploy Junior
 
 on:
-  push:
-    tags:
-      - '*.*.*'
-  workflow_dispatch:
+  release:
+    types:
+      - created
 
 jobs:
   build:
     runs-on: ubuntu-latest
-
     steps:
       - name: Checkout
         uses: actions/checkout@v2
@@ -18,10 +16,7 @@ jobs:
         id: meta
         uses: docker/metadata-action@v3
         with:
-          # list of Docker images to use as base name for tags
-          images: |
-            connorhsmith/junior
-          # generate Docker tags based on the following events/attributes
+          images: connorhsmith/junior
           tags: |
             type=schedule
             type=semver,pattern={{version}}
@@ -40,6 +35,16 @@ jobs:
         uses: docker/build-push-action@v2
         with:
           context: .
-          push: ${{ github.event_name != 'pull_request' }}
+          push: true
           tags: ${{ steps.meta.outputs.tags }}, connorhsmith/junior:latest
           labels: ${{ steps.meta.outputs.labels }}
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment: production
+    steps:
+      - name: Deploy via webhook
+        uses: joelwmale/webhook-action@master
+        with:
+          url: ${{ secrets.DEPLOY_WEBHOOK_URL }}
