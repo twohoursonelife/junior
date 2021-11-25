@@ -48,3 +48,22 @@ jobs:
         uses: joelwmale/webhook-action@master
         with:
           url: ${{ secrets.DEPLOY_WEBHOOK_URL }}
+
+  Deploy-Commands:
+    runs-on: ubuntu-latest
+    environment: prod
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: actions/setup-node@v2
+        with:
+          node-version: '16'
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Deploy commands
+        run: node deploy-commands.js
+        env:
+          TOKEN: ${{ secrets.PROD_BOT_TOKEN }}
