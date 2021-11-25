@@ -6,7 +6,7 @@ on:
       - created
 
 jobs:
-  build:
+  Release-Docker:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -39,7 +39,7 @@ jobs:
           tags: ${{ steps.meta.outputs.tags }}, connorhsmith/junior:latest
           labels: ${{ steps.meta.outputs.labels }}
 
-  deploy:
+  Deploy-Production:
     needs: build
     runs-on: ubuntu-latest
     environment: production
