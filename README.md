@@ -29,3 +29,6 @@ Build Docker container
 Deploy commands
 `export DEV/PROD_TOKEN=thetoken`
 `node deploy-commands.js`
+
+Webhook
+`webhook -hooks /var/webhook/hooks.json -verbose -port 9000 -hotreload`
