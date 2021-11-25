@@ -42,7 +42,7 @@ jobs:
   Deploy-Production:
     needs: build
     runs-on: ubuntu-latest
-    environment: production
+    environment: prod
     steps:
       - name: Deploy via webhook
         uses: joelwmale/webhook-action@master
