@@ -7,9 +7,10 @@ on:
   release:
     type:
       - created
+  workflow_dispatch:
 
 jobs:
-  build:
+  Release-GHCR:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
