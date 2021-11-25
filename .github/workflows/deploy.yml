@@ -40,7 +40,9 @@ jobs:
           labels: ${{ steps.meta.outputs.labels }}
 
   Deploy-Production:
-    needs: Release-Docker
+    needs:
+      - Release-Docker
+      - Deploy-Commands
     runs-on: ubuntu-latest
     environment: prod
     steps:
