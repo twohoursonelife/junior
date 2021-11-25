@@ -10,8 +10,8 @@
     "type": "git",
     "url": "git+https://github.com/twohoursonelife/junior.git"
   },
-  "author": "",
-  "license": "ISC",
+  "author": "Connor Smith",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/twohoursonelife/junior/issues"
   },
