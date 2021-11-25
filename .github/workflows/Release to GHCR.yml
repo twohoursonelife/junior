@@ -1,9 +1,12 @@
-name: Build and release to GHCR for testing
+name: Release to GHCR
 
 on:
   push:
     branch:
       - main
+  release:
+    type:
+      - created
 
 jobs:
   build:
