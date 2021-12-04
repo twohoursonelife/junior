@@ -5,6 +5,6 @@ module.exports = {
 		.setName('rng')
 		.setDescription('Random number generator'),
 	async execute(interaction) {
-		return interaction.reply(Math.floor((Math.random() * 100) + 1));
+		return interaction.reply(String(Math.floor((Math.random() * 100) + 1)));
 	},
 };
