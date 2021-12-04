@@ -39,4 +39,4 @@ client.on('interactionCreate', async interaction => {
 	}
 });
 
-client.login(process.env.TOKEN);
+client.login(process.env.DEV_TOKEN ? process.env.DEV_TOKEN : process.env.PROD_TOKEN);
