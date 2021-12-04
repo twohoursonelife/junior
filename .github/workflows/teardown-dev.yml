@@ -1,0 +1,14 @@
+name: Deploy to Dev environment
+
+on:
+  workflow_dispatch:
+
+jobs:
+  Teardown-Development:
+    runs-on: ubuntu-latest
+    environment: dev
+    steps:
+      - name: Deploy via webhook
+        uses: joelwmale/webhook-action@master
+        with:
+          url: ${{ secrets.DEV_TEARDOWN_WEBHOOK_URL }}
