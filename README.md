@@ -1,6 +1,12 @@
 # junior
 Non-C Junior: Automating the lifes work of MVP community member Non Creative Guy. *Supplies helpful information and guides to players upon a phrase in the Discord, amongst other helpful things*
 
+### How to deploy and release a new version
+- Make desired changes/commits
+- Create a new release via Github, naming the tag in the example format 1.0.0
+- Github action Deploy will trigger, building the image, pushing it to Dockerhub and finally will redeploy it.
+- Voila, bot is now updated in Discord.
+
 ### Container registry info
 
 - Docker namespace is `connorhsmith/junior`
