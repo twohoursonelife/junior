@@ -71,6 +71,6 @@ jobs:
       - name: Deploy commands
         run: node deploy-commands.js
         env:
-          TOKEN: ${{ secrets.DEV_BOT_TOKEN }}
+          DEV_TOKEN: ${{ secrets.DEV_BOT_TOKEN }}
           CLIENTID: ${{ secrets.DEV_CLIENT_TOKEN }}
           GUILDID: ${{ secrets.DEV_GUILD_ID }}
