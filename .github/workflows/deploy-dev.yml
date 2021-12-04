@@ -40,3 +40,37 @@ jobs:
           push: true
           tags: ${{ steps.meta.outputs.tags }}, ghcr.io/twohoursonelife/junior:latest
           labels: ${{ steps.meta.outputs.labels }}
+
+  Deploy-Development:
+    needs:
+      - Release-GHCR
+      - Deploy-DEV-Commands
+    runs-on: ubuntu-latest
+    environment: dev
+    steps:
+      - name: Deploy via webhook
+        uses: joelwmale/webhook-action@master
+        with:
+          url: ${{ secrets.DEV_DEPLOY_WEBHOOK_URL }}
+
+  Deploy-DEV-Commands:
+    runs-on: ubuntu-latest
+    environment: dev
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Setup Node 16
+        uses: actions/setup-node@v2
+        with:
+          node-version: '16'
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Deploy commands
+        run: node deploy-commands.js
+        env:
+          TOKEN: ${{ secrets.DEV_BOT_TOKEN }}
+          CLIENTID: ${{ secrets.DEV_CLIENT_TOKEN }}
+          GUILDID: ${{ secrets.DEV_GUILD_ID }}
