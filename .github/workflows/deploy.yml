@@ -49,7 +49,7 @@ jobs:
       - name: Deploy via webhook
         uses: joelwmale/webhook-action@master
         with:
-          url: ${{ secrets.DEPLOY_WEBHOOK_URL }}
+          url: ${{ secrets.PROD_DEPLOY_WEBHOOK_URL }}
 
   Deploy-Commands:
     runs-on: ubuntu-latest
