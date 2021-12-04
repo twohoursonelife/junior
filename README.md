@@ -27,10 +27,10 @@ Non-C Junior: Automating the lifes work of MVP community member Non Creative Guy
 ### Command cheat sheet
 
 Run latest dev image
-`sudo docker run --name=junior -d -e DEV_TOKEN=thetoken ghcr.io/connorhsmith/junior`
+`sudo docker run --name=junior -d -e DEV_TOKEN=thetoken ghcr.io/twohoursonelife/junior`
 
 Build Docker container
-`docker build --tag connorhsmith/junior .`
+`docker build --tag ghcr.io/twohoursonelife/junior .`
 
 Deploy commands
 `export DEV/PROD_TOKEN=thetoken`
