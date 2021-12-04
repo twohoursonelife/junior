@@ -7,6 +7,16 @@ Non-C Junior: Automating the lifes work of MVP community member Non Creative Guy
 - Github action Deploy will trigger, building the image, pushing it to Dockerhub and finally will redeploy it.
 - Voila, bot is now updated in Discord.
 
+### Necessary Environment Variables
+#### For running the bot
+If the Dev token is set, this will take precedence. This is an effort to avoid deploying dev commands to the prod Discord or running dev code as prod bot.
+- DEV_TOKEN: Development bot token
+- PROD_TOKEN: Production bot token
+
+#### For deploying commands
+- CLIENTID: ID of the bot client to deploy the commands
+- GUILDID: ID of the guild to deploy the commands
+
 ### Container registry info
 
 - Docker namespace is `connorhsmith/junior`
