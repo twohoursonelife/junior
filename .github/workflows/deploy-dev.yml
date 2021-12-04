@@ -1,9 +1,6 @@
 name: Deploy to Dev environment
 
 on:
-  push:
-    branch:
-      - main
   workflow_dispatch:
 
 jobs:
