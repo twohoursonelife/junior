@@ -70,5 +70,5 @@ jobs:
         run: node deploy-commands.js
         env:
           PROD_TOKEN: ${{ secrets.PROD_BOT_TOKEN }}
-          CLIENTID: ${{ secrets.PROD_CLIENT_TOKEN }}
+          CLIENTID: ${{ secrets.PROD_CLIENT_ID }}
           GUILDID: ${{ secrets.PROD_GUILD_ID }}
