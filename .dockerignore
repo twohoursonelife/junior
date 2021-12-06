@@ -1,3 +1,7 @@
-node_modules
 .vscode
 .github
+*.md
+.git
+.gitignore
+deploy-commands.js
+utils
