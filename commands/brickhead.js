@@ -5,6 +5,9 @@ module.exports = {
 		.setName('brickhead')
 		.setDescription('brickhead?'),
 	async execute(interaction) {
-		return interaction.reply('Dragon is the brick lord!');
+		return interaction.reply({
+			content: 'Dragon is the brick lord!',
+			ephemeral: true
+		});
 	},
 };

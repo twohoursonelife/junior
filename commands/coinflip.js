@@ -6,6 +6,9 @@ module.exports = {
 		.setDescription('Flip a coin'),
 	async execute(interaction) {
 		const coin = Math.round(Math.random());
-		return interaction.reply(coin ? 'Heads' : 'Tails');
+		return interaction.reply({
+			content: coin ? 'Heads' : 'Tails',
+			ephemeral: true
+		});
 	},
 };

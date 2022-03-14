@@ -5,6 +5,9 @@ module.exports = {
 		.setName('sus')
 		.setDescription('sus'),
 	async execute(interaction) {
-		return interaction.reply('Rainie is sus, but I think Liger bit someone...');
+		return interaction.reply({
+			content: 'Rainie is sus, but I think Liger bit someone...',
+			ephemeral: true
+		});
 	},
 };
