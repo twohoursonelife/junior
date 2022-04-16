@@ -1,0 +1,10 @@
+const { SlashCommandBuilder } = require('@discordjs/builders');
+
+module.exports = {
+	data: new SlashCommandBuilder()
+		.setName('yum')
+		.setDescription('Yum Chaining'),
+	async execute(interaction) {
+		return interaction.reply('Yum is an important mechanic to learn in 2HOL. Yum chaining allows you to go longer without eating.\n\nWhen holding a food, look in the bottom left corner of your screen. It will say either \'yum\' or \'meh\' above your Food Meter (this is also how you know something is edible). Every food item is yum once per life. If you have not eaten the food yet in your current life, it will say \'yum\'. If you have, it will say \'meh\' for the remainder of your life.\n\nThe more yum foods you eat in your life, the more benefits you get for each food. This is what\'s known as a yum chain, because you are adding the effects of each new yum item to the last. The amount of unique foods that you have eaten is shown by a “#x” above your Food Meter. If you’ve eaten an apple, an orange, and some roasted rabbit, this number will be “3x”. The multiple -1 is equal to how many bonus food boxes that you get when you eat your next yum food. In that example’s case, say you eat a lemon; the multiple will now be “4x” and you’ll get 3 extra food boxes. Now imagine this as you’ve slowly gained a yum chain throughout your life. You could have a chain of 20, and your next food would give you 20 extra boxes.\n\nDon’t worry about wasting food when yumming. There is food overflow! Sometimes you will notice a “+#” above your Food Meter. This number represents how many food squares you actually have, besides your visible Food Meter. Yum bonus will always go to this overflow.\n\nThe idea of yum chaining is to make players always strive to eat new foods, over just relying on a \'meta\', or easy foods.\n(Credit to liger for revamping this guide!)');
+	},
+};
