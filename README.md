@@ -45,14 +45,16 @@ If the Dev token is set, this will take precedence. This is an effort to avoid d
 
 ### Command cheat sheet
 
-Run latest dev image
-`sudo docker run --name=junior -d -e DEV_TOKEN=thetoken ghcr.io/twohoursonelife/junior`
-
 Build Docker container
-`docker build --tag ghcr.io/twohoursonelife/junior .`
+`docker build . --tag ghcr.io/twohoursonelife/junior-dev`
+
+Run latest dev image
+`docker run --name=junior-dev --detach --env DEV_TOKEN=thetoken ghcr.io/twohoursonelife/junior-dev:latest`
 
 Deploy commands
 `export DEV/PROD_TOKEN=thetoken`
+`export GUILDID=id`
+`export CLIENTID=id`
 `node deploy-commands.js`
 
 Webhook
