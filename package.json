@@ -1,6 +1,5 @@
 {
   "name": "junior",
-  "version": "1.1.4",
   "description": "Non-C Junior: Automating the lifes work of MVP community member Non Creative Guy.",
   "main": "junior.js",
   "scripts": {
@@ -17,12 +16,12 @@
   },
   "homepage": "https://github.com/twohoursonelife/junior#readme",
   "dependencies": {
-    "@discordjs/builders": "^0.6.0",
-    "@discordjs/rest": "^0.1.0-canary.0",
-    "discord-api-types": "^0.23.1",
-    "discord.js": "^13.1.0"
+    "@discordjs/builders": "^0.15.0",
+    "@discordjs/rest": "^0.5.0",
+    "discord-api-types": "^0.35.0",
+    "discord.js": "^13.8.1"
   },
   "devDependencies": {
-    "eslint": "^7.32.0"
+    "eslint": "^8.18.0"
   }
 }
