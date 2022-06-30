@@ -18,6 +18,12 @@ If the Dev token is set, this will take precedence. This is an effort to avoid d
 - CLIENTID: ID of the bot client to deploy the commands
 - GUILDID: ID of the guild to deploy the commands
 
+- 2HOL Discord: 423293333864054833
+- Junior: 888800450533548123
+
+- 2HOL Dev Discord: 678098930503909386
+- Dev Junior: 912705407850532904
+
 ### Container registry info
 
 - Docker namespace is `connorhsmith/junior`
