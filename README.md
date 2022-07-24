@@ -23,30 +23,27 @@ If the Dev token is set, this will take precedence. This is an effort to avoid d
 - 2HOL Discord: 423293333864054833
 - Junior: 888800450533548123
 
+
 - 2HOL Dev Discord: 678098930503909386
 - Dev Junior: 912705407850532904
 
 ### Container registry info
 
-- Docker namespace is `connorhsmith/junior`
+- We use GitHub's container registry, namespace `ghcr.io/twohoursonelife/junior`
   - You will find **stable/released** versions here
-- This repo also uses Github Container Registry, namespace `ghcr.io/twohoursonelife/junior`
-  - You will find **unstable/dev** versions here
 
 ### Github Actions info
 
-- We have an action to deploy the bot, triggered by the creation of a Github release. (Version format `*.*.*`)
-  - This is `.github/workflows/deploy.yml`, the action is made up of three jobs. First the image is built and exported to Docker Hub, at the same time the Slash Commands for the bot are being deployed in a seperate job and finally, dependent on the build and upload job, final deployment is triggered.
+- We have an action to deploy the bot, triggered by the creation of a GitHub release. (Version format `*.*.*`)
+  - This is `.github/workflows/deploy.yml`, the action is made up of three jobs. First the image is built and exported to GHCR, at the same time the Slash Commands for the bot are being deployed in a seperate job and finally, dependent on the build and upload job, final deployment is triggered.
   - Deployment is a bit rougher and not as easy to quickly move to another server as I would like it to be.
   - In essence, we have a Digital Ocean Droplet setup with the 1-Click-Install Docker image which has then been setup with [adnanh/webhook](https://github.com/adnanh/webhook) and the `deploy.sh` script found in this repo, loosely following [this article](https://levelup.gitconnected.com/automated-deployment-using-docker-github-actions-and-webhooks-54018fc12e32).
   - This allows the deploy action to hit the *totally secure (and not security by obscurity)* webhook with a POST request, triggering the script to run on the server.
 
-- The other action simply builds the image and releases it to GHCR on every push to the main branch.
-
 ### Command cheat sheet
 
 Build Docker container
-`docker build . --tag ghcr.io/twohoursonelife/junior-dev`
+`docker build . --tag ghcr.io/twohoursonelife/junior`
 
 Run latest dev image
 `docker run --name=junior-dev --detach --env DEV_TOKEN=thetoken ghcr.io/twohoursonelife/junior-dev:latest`
@@ -59,6 +56,7 @@ Deploy commands
 
 Webhook
 `webhook -hooks /var/webhook/hooks.json -verbose -port 9000 -hotreload`
+To manage the Webhook app, a screen is running titled 'webhooks'
 
 Use correct node version
 `nvm use (version)` *Always check the Dockerfile for the current version of Node this project is developed against.*
