@@ -2,13 +2,27 @@ const { REST } = require('@discordjs/rest');
 const { Routes } = require('discord-api-types/v9');
 const fs = require('fs');
 
-const clientID = process.env.CLIENTID
-const guildID = process.env.GUILDID
+let clientID;
+let guildID;
 
-if (typeof clientID == 'undefined' || typeof guildID == 'undefined' ){
-	console.log('CLIENTID and GUILDID environment vairables must be set to deploy commands.');
+if (process.env.CLIENTID) {
+	clientID = process.env.CLIENTID
+} else {
+	clientID = "912705407850532904"; // Dev client
+	console.log('CLIENTID environment vairable not set, defaulting to dev client.');
+}
+
+if (process.env.GUILDID) {
+	guildID = process.env.GUILDID
+} else {
+	guildID = "678098930503909386"; // Dev guild
+	console.log('GUILDID environment vairable not set, defaulting to dev guild.');
+}
+
+if (!process.env.DEV_TOKEN && !process.env.PROD_TOKEN) {
+	console.log("DEV_TOKEN and PROD_TOKEN were not set when deploying commands! Exiting.");
 	process.exit();
-};
+}
 
 const commands = [];
 const commandFiles = fs.readdirSync('./commands').filter(file => file.endsWith('.js'));
