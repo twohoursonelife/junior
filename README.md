@@ -68,3 +68,6 @@ Update packages
 
 Better way to update packages (Will tell you about any new versions, including major)
 `npx npm-check-updates` provide `-u` for the program to update them itself
+
+Get current Junior version
+`git describe --tags --abbrev=0 > version.txt`
