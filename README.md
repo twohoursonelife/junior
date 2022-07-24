@@ -53,9 +53,18 @@ Run latest dev image
 
 Deploy commands
 `export DEV/PROD_TOKEN=thetoken`
-`export GUILDID=id`
-`export CLIENTID=id`
+`export GUILDID=id` (Defaults to dev token if unset)
+`export CLIENTID=id` (Defaults to dev token if unset)
 `node deploy-commands.js`
 
 Webhook
 `webhook -hooks /var/webhook/hooks.json -verbose -port 9000 -hotreload`
+
+Use correct node version
+`nvm use (version)` *Always check the Dockerfile for the current version of Node this project is developed against.*
+
+Update packages
+`npm update`
+
+Better way to update packages (Will tell you about any new versions, including major)
+`npx npm-check-updates` provide `-u` for the program to update them itself
