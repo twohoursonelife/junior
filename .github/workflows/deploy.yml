@@ -6,7 +6,7 @@ on:
       - created
 
 jobs:
-  Release-Docker:
+  Release-GHCR:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -16,7 +16,7 @@ jobs:
         id: meta
         uses: docker/metadata-action@v3
         with:
-          images: connorhsmith/junior
+          images: ghcr.io/twohoursonelife/junior
           tags: |
             type=schedule
             type=semver,pattern={{version}}
@@ -25,23 +25,24 @@ jobs:
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v1
 
-      - name: Login to DockerHub
+      - name: Login to GHCR
         uses: docker/login-action@v1
         with:
-          username: ${{ secrets.DOCKER_HUB_USERNAME }}
-          password: ${{ secrets.DOCKER_HUB_ACCESS_TOKEN }}
+          registry: ghcr.io
+          username: ${{ github.repository_owner }}
+          password: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Build and push
         uses: docker/build-push-action@v2
         with:
           context: .
           push: true
-          tags: ${{ steps.meta.outputs.tags }}, connorhsmith/junior:latest
+          tags: ${{ steps.meta.outputs.tags }}, ghcr.io/twohoursonelife/junior:latest
           labels: ${{ steps.meta.outputs.labels }}
 
   Deploy-Production:
     needs:
-      - Release-Docker
+      - Release-GHCR
       - Deploy-Commands
     runs-on: ubuntu-latest
     environment: prod
