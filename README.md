@@ -5,7 +5,6 @@ Non-C Junior: Automating the life's work of MVP community member Non Creative Gu
 
 ### How to deploy and release a new version
 - Make desired changes/commits
-- ~~If you remember, update package version in package.json~~
 - Create a new release via Github, naming the tag in the example format 1.0.0
 - Github action Deploy will trigger, building the image, pushing it to GHCR and finally will redeploy it.
 - Voila, bot is now updated in Discord. Check with /version
