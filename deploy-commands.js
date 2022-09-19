@@ -9,15 +9,15 @@ if (process.env.CLIENTID) {
 	clientID = process.env.CLIENTID
 } else {
 	clientID = "912705407850532904"; // Dev client
-	console.log('CLIENTID environment vairable not set, defaulting to dev client.');
-}
+	console.log('CLIENTID environment variable not set, defaulting to dev client.');
+};
 
 if (process.env.GUILDID) {
 	guildID = process.env.GUILDID
 } else {
 	guildID = "678098930503909386"; // Dev guild
-	console.log('GUILDID environment vairable not set, defaulting to dev guild.');
-}
+	console.log('GUILDID environment variable not set, defaulting to dev guild.');
+};
 
 if (!process.env.DEV_TOKEN && !process.env.PROD_TOKEN) {
 	console.log("DEV_TOKEN and PROD_TOKEN were not set when deploying commands! Exiting.");
