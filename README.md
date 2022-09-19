@@ -1,5 +1,5 @@
 # junior
-Non-C Junior: Automating the lifes work of MVP community member Non Creative Guy. *Supplies helpful information and guides to players upon a phrase in the Discord, amongst other helpful things*
+Non-C Junior: Automating the life's work of MVP community member Non Creative Guy. *Supplies helpful information and guides to players upon a phrase in the Discord, amongst other helpful things*
 
 **Always check the Dockerfile for the current version of Node this project is developed against.**
 
@@ -7,25 +7,24 @@ Non-C Junior: Automating the lifes work of MVP community member Non Creative Guy
 - Make desired changes/commits
 - ~~If you remember, update package version in package.json~~
 - Create a new release via Github, naming the tag in the example format 1.0.0
-- Github action Deploy will trigger, building the image, pushing it to Dockerhub and finally will redeploy it.
-- Voila, bot is now updated in Discord.
+- Github action Deploy will trigger, building the image, pushing it to GHCR and finally will redeploy it.
+- Voila, bot is now updated in Discord. Check with /version
 
 ### Necessary Environment Variables
 #### For running the bot
-If the Dev token is set, this will take precedence. This is an effort to avoid deploying dev commands to the prod Discord or running dev code as prod bot.
-- DEV_TOKEN: Development bot token
-- PROD_TOKEN: Production bot token
+When **DEV_TOKEN** is set, **PROD_TOKEN** will not be checked to prevent deploying dev commands to prod accidentally. Default hardcoded dev CLIENT and GUILD ID's will be used; If only **PROD_TOKEN** is set, it will be expected the ID variables are also set.
+- **DEV_TOKEN**: Development bot token
+- **PROD_TOKEN**: Production bot token
 
 #### For deploying commands
-- CLIENTID: ID of the bot client to deploy the commands
-- GUILDID: ID of the guild to deploy the commands
+- **CLIENTID**: ID of the bot client to deploy the commands
+- **GUILDID**: ID of the guild to deploy the commands
 
-- 2HOL Discord: 423293333864054833
 - Junior: 888800450533548123
+- 2HOL Discord: 423293333864054833
 
-
-- 2HOL Dev Discord: 678098930503909386
 - Dev Junior: 912705407850532904
+- Dev 2HOL Discord: 678098930503909386
 
 ### Container registry info
 
