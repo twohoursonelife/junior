@@ -40,17 +40,20 @@ When **DEV_TOKEN** is set, **PROD_TOKEN** will not be checked to prevent deployi
 
 ### Command cheat sheet
 
-Build Docker container
+Build Docker container, leave pushing to the workflow for proper tagging
 `docker build . --tag ghcr.io/twohoursonelife/junior`
 
 Run latest dev image
-`docker run --name=junior-dev --detach --env DEV_TOKEN=thetoken ghcr.io/twohoursonelife/junior-dev:latest`
+`docker run --detach --env DEV_TOKEN=thetoken ghcr.io/twohoursonelife/junior`
 
 Deploy commands
-`export DEV/PROD_TOKEN=thetoken`
-`export GUILDID=id` (Defaults to dev token if unset)
-`export CLIENTID=id` (Defaults to dev token if unset)
-`node deploy-commands.js`
+GUILDID and CLIENTID defaults to dev token if unset
+```bash
+export DEV/PROD_TOKEN=
+export GUILDID=
+export CLIENTID=
+node deploy-commands.js
+```
 
 Webhook
 `webhook -hooks /var/webhook/hooks.json -verbose -port 9000 -hotreload`
