@@ -14,8 +14,8 @@ if (process.env.DEV_TOKEN) {
 
 } else if (process.env.PROD_TOKEN) {
 	botToken = process.env.PROD_TOKEN;
-	clientID = process.env.CLIENTID;
-	guildID = process.env.GUILDID;
+	clientID = "888800450533548123";
+	guildID = "423293333864054833";
 
 } else {
 	console.log("DEV_TOKEN or PROD_TOKEN were not set when deploying commands! Exiting.");
