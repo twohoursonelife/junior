@@ -16,13 +16,13 @@
   },
   "homepage": "https://github.com/twohoursonelife/junior#readme",
   "dependencies": {
-    "@discordjs/builders": "^1.3.0",
-    "@discordjs/rest": "^1.3.0",
-    "discord-api-types": "^0.37.19",
-    "discord.js": "^14.6.0"
+    "@discordjs/builders": "^1.5.0",
+    "@discordjs/rest": "^1.6.0",
+    "discord-api-types": "^0.37.37",
+    "discord.js": "^14.8.0"
   },
   "devDependencies": {
-    "eslint": "^8.28.0",
-    "npm-check-updates": "^16.4.3"
+    "eslint": "^8.37.0",
+    "npm-check-updates": "^16.9.0"
   }
 }
