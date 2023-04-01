@@ -55,9 +55,6 @@ export CLIENTID=
 node deploy-commands.js
 ```
 
-Webhook
-`webhook -hooks /var/webhook/hooks.json -verbose -port 9000 -hotreload`
-To manage the Webhook app, a screen is running titled 'webhooks'
 
 Use correct node version
 `nvm use (version)` *Always check the Dockerfile for the current version of Node this project is developed against.*

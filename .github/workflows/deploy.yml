@@ -43,21 +43,8 @@ jobs:
           tags: ${{ steps.meta.outputs.tags }}, ghcr.io/twohoursonelife/junior:latest
           labels: ${{ steps.meta.outputs.labels }}
 
-  Deploy-Production:
-    needs:
-      - Release-GHCR
-      - Deploy-Commands
-    runs-on: ubuntu-latest
-    environment: prod
-    steps:
-      - name: Deploy via webhook
-        uses: joelwmale/webhook-action@master
-        with:
-          url: ${{ secrets.PROD_DEPLOY_WEBHOOK_URL }}
-
   Deploy-Commands:
     runs-on: ubuntu-latest
-    environment: prod
     steps:
       - name: Checkout
         uses: actions/checkout@v2
