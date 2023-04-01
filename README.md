@@ -25,19 +25,6 @@ When **DEV_TOKEN** is set, **PROD_TOKEN** will not be checked to prevent deployi
 - Dev Junior: 912705407850532904
 - Dev 2HOL Discord: 678098930503909386
 
-### Container registry info
-
-- We use GitHub's container registry, namespace `ghcr.io/twohoursonelife/junior`
-  - You will find **stable/released** versions here
-
-### Github Actions info
-
-- We have an action to deploy the bot, triggered by the creation of a GitHub release. (Version format `*.*.*`)
-  - This is `.github/workflows/deploy.yml`, the action is made up of three jobs. First the image is built and exported to GHCR, at the same time the Slash Commands for the bot are being deployed in a seperate job and finally, dependent on the build and upload job, final deployment is triggered.
-  - Deployment is a bit rougher and not as easy to quickly move to another server as I would like it to be.
-  - In essence, we have a Digital Ocean Droplet setup with the 1-Click-Install Docker image which has then been setup with [adnanh/webhook](https://github.com/adnanh/webhook) and the `deploy.sh` script found in this repo, loosely following [this article](https://levelup.gitconnected.com/automated-deployment-using-docker-github-actions-and-webhooks-54018fc12e32).
-  - This allows the deploy action to hit the *totally secure (and not security by obscurity)* webhook with a POST request, triggering the script to run on the server.
-
 ### Command cheat sheet
 
 Build Docker container, leave pushing to the workflow for proper tagging
@@ -55,15 +42,8 @@ export CLIENTID=
 node deploy-commands.js
 ```
 
-
-Use correct node version
-`nvm use (version)` *Always check the Dockerfile for the current version of Node this project is developed against.*
-
 Update packages
 `npm update`
 
 Better way to update packages (Will tell you about any new versions, including major)
 `npx npm-check-updates` provide `-u` for the program to update them itself
-
-Get current Junior version
-`git describe --tags --abbrev=0 > version.txt`
