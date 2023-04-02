@@ -1,0 +1,16 @@
+version: '3'
+services:
+  junior:
+    image: ghcr.io/twohoursonelife/junior:latest
+    build:
+      context: .
+    restart: always
+    env_file:
+      - .env
+    logging:
+      driver: awslogs
+      options:
+        awslogs-region: "us-east-1"
+        awslogs-create-group: "true"
+        awslogs-group: "junior"
+        awslogs-stream: "junior"
