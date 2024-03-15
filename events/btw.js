@@ -2,9 +2,9 @@ module.exports = {
 	name: 'messageCreate',
 	once: false,
 	execute(message) {
-		if (message.content.match(/spawn code/gi)) {
+		if (message.content.match(/btw/gi)) {
 			try {
-				message.react('<:slashLove:855498663577387008>');
+				message.react('<a:yes:624134681142493185>');
 			} catch (error) {
 				console.error(error)
 			}
