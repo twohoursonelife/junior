@@ -6,7 +6,7 @@ module.exports = {
 		.setDescription('Birthday winners'),
 	async execute(interaction) {
 		return interaction.reply({
-			content: 'These are the first place winners of my past birthday parties!\n\nhelenbrait\njohnnychaotic',
+			content: 'These are the first place winners of my past birthday parties!\n\n- 2022: helenbrait\n- 2023: johnnychaotic\n 2024: fajny33336',
 		});
 	},
 };
