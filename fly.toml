@@ -1,0 +1,13 @@
+app = "junior"
+primary_region = "iad"
+swap_size_mb = 512
+
+[build]
+  image = "ghcr.io/twohoursonelife/junior:latest"
+
+[[restart]]
+  policy = "on-failure"
+
+[[vm]]
+  size = "shared-cpu-1x"
+  memory = "256mb"
