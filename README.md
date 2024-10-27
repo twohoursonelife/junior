@@ -25,8 +25,8 @@ When **DEV_TOKEN** is set, **PROD_TOKEN** will not be checked to prevent deployi
 
 ### Dev command cheat sheet
 
-- `npm run build`
-- `npm run start`
+- `bun run build`
+- `bun run start`
 
 Deploy commands
 GUILDID and CLIENTID defaults to dev token if unset
@@ -34,9 +34,9 @@ GUILDID and CLIENTID defaults to dev token if unset
 export DEV/PROD_TOKEN=
 export GUILDID=
 export CLIENTID=
-npm run commands
+bun run commands
 ```
 
 Update packages
-`npm update`
-`npx npm-check-updates -u`
+`bun update`
+`bun npm-check-updates -u`

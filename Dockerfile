@@ -1,13 +1,8 @@
-FROM alpine
-
-RUN apk add --update nodejs npm
+FROM oven/bun:alpine
 
 WORKDIR /app
-
-COPY package*.json ./
-
-RUN npm clean-install
-
+COPY package.json bun.lockb ./
+RUN bun install --frozen-lockfile --production
 COPY . .
 
-CMD ["node", "junior.js"]
+CMD ["bun", "run", "junior.js"]

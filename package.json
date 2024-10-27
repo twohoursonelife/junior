@@ -5,18 +5,19 @@
   "license": "MIT",
   "private": true,
   "scripts": {
-    "start": "docker compose up --detach",
     "build": "docker compose build",
+    "start": "docker compose up --detach",
+    "stop": "docker compose down",
     "commands": "node deploy-commands.js"
   },
   "dependencies": {
-    "@discordjs/builders": "^1.9.0",
-    "@discordjs/rest": "^2.4.0",
-    "discord-api-types": "^0.37.103",
-    "discord.js": "^14.16.3"
+    "discord.js": "^14.16.3",
+    "@discordjs/builders": "^1.9.0"
   },
   "devDependencies": {
     "eslint": "^9.13.0",
-    "npm-check-updates": "^17.1.4"
+    "npm-check-updates": "^17.1.4",
+    "@discordjs/rest": "^2.4.0",
+    "discord-api-types": "^0.37.103"
   }
 }

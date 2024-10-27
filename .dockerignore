@@ -7,3 +7,4 @@ deploy-commands.js
 utils
 node_modules
 .nvmrc
+*.env
