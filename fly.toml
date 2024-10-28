@@ -8,6 +8,8 @@ swap_size_mb = 512
 [[restart]]
   policy = "on-failure"
 
+# Release command, deploy commands
+
 [[vm]]
   size = "shared-cpu-1x"
   memory = "256mb"
