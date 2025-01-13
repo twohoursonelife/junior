@@ -1,0 +1,11 @@
+name: Test
+
+on:
+  repository_dispatch:
+  workflow_dispatch:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "Running tests"
