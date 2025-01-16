@@ -1,9 +1,6 @@
 app = "junior"
-primary_region = "iad"
-swap_size_mb = 512
-
-[build]
-  image = "ghcr.io/twohoursonelife/junior:latest"
+primary_region = "ewr"
+swap_size_mb = 256
 
 [[restart]]
   policy = "on-failure"

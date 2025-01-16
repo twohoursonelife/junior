@@ -1,11 +1,10 @@
 # junior
 Non-C Junior: Automating the life's work of MVP community member Non Creative Guy. *Supplies helpful information and guides to players upon a phrase in the Discord, amongst other helpful things*
 
-### Deploy and release a new version
-- Make desired changes/commits
-- Create a new release via GitGub, naming the tag in the example format 1.0.0
-- Github action Deploy will trigger, building the image, pushing it to GHCR and finally will redeploy it.
-- Voila, bot is now updated in Discord. Check with /version
+### Deploy a new version
+- Push changes to main
+- Wait for workflow
+- Done
 
 ### Necessary Environment Variables
 #### For running the bot

@@ -1,5 +1,5 @@
 services:
-  junior:
+  junior-dev:
     image: ghcr.io/twohoursonelife/junior
     build:
       context: .
