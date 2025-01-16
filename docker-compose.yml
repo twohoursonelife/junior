@@ -1,8 +1,5 @@
 services:
   junior-dev:
-    image: ghcr.io/twohoursonelife/junior
-    build:
-      context: .
-    restart: always
+    image: junior
     env_file:
       - .env

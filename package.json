@@ -5,9 +5,8 @@
   "license": "MIT",
   "private": true,
   "scripts": {
-    "build": "docker build -t ghcr.io/twohoursonelife/junior .",
-    "start": "docker compose up",
-    "stop": "docker compose down",
+    "build": "docker build -t junior .",
+    "start": "docker run -d --rm --env-file .env junior",
     "commands": "bun deploy-commands.js",
     "sync": "bun install --frozen-lockfile --production"
   },
