@@ -5,8 +5,9 @@
   "license": "MIT",
   "private": true,
   "scripts": {
-    "build": "docker build -t junior .",
-    "start": "docker run -d --rm --env-file .env junior",
+    "start": "docker compose up --build --force-recreate",
+    "stop": "docker compose kill && docker compose rm -f",
+    "reload": "bun run start",
     "commands": "bun deploy-commands.js",
     "sync": "bun install --frozen-lockfile --production"
   },

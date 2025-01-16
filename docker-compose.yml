@@ -1,5 +1,7 @@
 services:
   junior-dev:
     image: junior
+    build:
+      no_cache: true
     env_file:
       - .env
