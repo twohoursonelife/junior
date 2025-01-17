@@ -1,5 +1,5 @@
 app = "junior"
-primary_region = "ewr"
+primary_region = "iad"
 swap_size_mb = 256
 
 [[restart]]
