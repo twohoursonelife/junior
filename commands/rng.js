@@ -1,4 +1,5 @@
 const { SlashCommandBuilder } = require('@discordjs/builders');
+const { MessageFlags } = require('discord.js');
 
 module.exports = {
 	data: new SlashCommandBuilder()
@@ -7,7 +8,7 @@ module.exports = {
 	async execute(interaction) {
 		return interaction.reply({
 			content: String(Math.floor((Math.random() * 100) + 1)),
-			ephemeral: true
+			flags: MessageFlags.Ephemeral
 		});
 	},
 };

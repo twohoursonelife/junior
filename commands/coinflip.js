@@ -1,4 +1,5 @@
 const { SlashCommandBuilder } = require('@discordjs/builders');
+const { MessageFlags } = require('discord.js');
 
 module.exports = {
 	data: new SlashCommandBuilder()
@@ -8,7 +9,7 @@ module.exports = {
 		const coin = Math.round(Math.random());
 		return interaction.reply({
 			content: coin ? 'Heads' : 'Tails',
-			ephemeral: true
+			flags: MessageFlags.Ephemeral
 		});
 	},
 };

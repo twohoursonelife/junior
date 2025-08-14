@@ -1,4 +1,5 @@
 const { SlashCommandBuilder } = require('@discordjs/builders');
+const { MessageFlags } = require('discord.js');
 
 module.exports = {
 	data: new SlashCommandBuilder()
@@ -8,7 +9,7 @@ module.exports = {
 		const foods = ['Apple', 'Baked Potato', 'Baked Squash Chunks', 'Banana', 'Bean Burrito', 'Bean Taco', 'Best Bite of Burger', 'Bowl of Carnitas', 'Bowl of Chilli Con Carne', 'Bowl of Cooked Rice', 'Bowl of Fish Stew', 'Bowl of French Onion Soup', 'Bowl of Gooseberries', 'Bowl of Green Beans', 'Bowl of Honey', 'Bowl of Maple Syrup', 'Bowl of Mushroom Soup ', 'Bowl of Sauerkraut', 'Bowl of Stew', 'Bowl of Tomato Soup', 'Bowl of Turkey Broth', 'Burdock Root', 'Burger', 'Buttered Bread on Clay Plate', 'Cactus Fruit', 'Carrot', 'Cheese Wedge', 'Chicken Stir Fry', 'Chip with Salsa', 'Cooked Apple Pie', 'Cooked Beef', 'Cooked Beef with Rub', 'Cooked Berry Carrot Pie', 'Cooked Berry Carrot Rabbit Pie', 'Cooked Berry Pie', 'Cooked Berry Rabbit Pie', 'Cooked Carrot Pie', 'Cooked Chicken', 'Cooked Cookie', 'Cooked Crab', 'Cooked Goose', 'Cooked Honey Bunny Pie', 'Cooked Lobster', 'Cooked Mutton', 'Cooked Mutton Pie', 'Cooked Mutton with Rub', 'Cooked Pork', 'Cooked Pork Pie', 'Cooked Pork and Apple Pie', 'Cooked Pork with Rub', 'Cooked Rabbit', 'Cooked Rabbit Carrot Pie', 'Cooked Rabbit Pie', 'Cooked Sausage', 'Cooked Seasoned Bass', 'Cooked Seasoned Char', 'Cooked Seasoned Cod', 'Cooked Seasoned Pike', 'Cooked Seasoned Shrimp', 'Cooked Seasoned Trout', 'Cooked Shrimp', 'Cooked Skewered Bass Fillets', 'Cooked Skewered Char Fillets', 'Cooked Skewered Cod Fillets', 'Cooked Skewered Pike Fillets', 'Cooked Skewered Trout Fillets', 'Cooked Steak Pie', 'Cooked Steak and Onion Pie', 'Cut Boiled Egg on Clay Plate', 'Drilled Coconut', 'French Fry', 'French Fry with Ketchup', 'Garlic Bulb', 'Gooseberry', 'Grapes', 'Honeycomb', 'Hot Pepper', 'Jerky', 'Juicy Part of Burger', 'Lemon', 'Mango Slices', 'Mug of Apple Juice', 'Mug of Beer', 'Mug of Hot Chocolate', 'Mug of Lemonade', 'Mug of Orange Juice', 'Mug of Skim Milk', 'Mug of Whole Milk', 'Omelette', 'Onigiri', 'Onion', 'Orange', 'Pickle', 'Pickling Cucumber', 'Plate of Cooked Seasoned Sardines', 'Popcorn', 'Pork Taco', 'Psilocybe Mushroom', 'Roast Pig Dinner on Plate', 'Shucked Ear of Corn', 'Skewered Cooked Sardines', 'Slice of Bread', 'Slice of Pizza', 'Sliced Pumpkin Pie', 'Split Coconut', 'Spoon of Ice Cream', 'Stack of Pancakes with Syrup', 'Sunny Egg', 'Tomato', 'Tortilla Chip', 'Turkey Drumstick', 'Turkey Slice', 'Wild Carrot', 'Wild Garlic', 'Wild Honeycomb', 'Wild Onion', 'Wild Pepper', 'Wine Glass'];
 		return interaction.reply({
 			content: foods[Math.floor(Math.random() * foods.length)],
-			ephemeral: true
+			flags: MessageFlags.Ephemeral
 		});
 	},
 };

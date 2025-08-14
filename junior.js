@@ -1,7 +1,7 @@
 // Thanks to https://github.com/discordjs/guide for base code samples.
 
 const fs = require('fs');
-const { Client, Collection, GatewayIntentBits } = require('discord.js');
+const { Client, Collection, GatewayIntentBits, MessageFlags } = require('discord.js');
 
 const client = new Client({ intents: [GatewayIntentBits.Guilds, GatewayIntentBits.GuildMessages, GatewayIntentBits.MessageContent] });
 
@@ -35,7 +35,7 @@ client.on('interactionCreate', async interaction => {
 		await command.execute(interaction);
 	} catch (error) {
 		console.error(error);
-		return interaction.reply({ content: 'There was an error while executing this command!', ephemeral: true });
+		return interaction.reply({ content: 'There was an error while executing this command!', flags: MessageFlags.Ephemeral });
 	}
 });
 

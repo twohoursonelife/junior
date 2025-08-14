@@ -1,4 +1,5 @@
 const { SlashCommandBuilder } = require('@discordjs/builders');
+const { MessageFlags } = require('discord.js');
 
 module.exports = {
 	data: new SlashCommandBuilder()
@@ -8,7 +9,7 @@ module.exports = {
 		const dyes = ["I like red!", "Green is the best!", "Blue would be nice!", "What about black!", "White?", "Maybe yellow?"];
 		return interaction.reply({
 			content: dyes[Math.floor(Math.random() * dyes.length)],
-			ephemeral: true
+			flags: MessageFlags.Ephemeral
 		});
 	},
 };
