@@ -17,8 +17,8 @@
   },
   "devDependencies": {
     "eslint": "^9.33.0",
-    "npm-check-updates": "^17.1.18",
+    "npm-check-updates": "^18.0.3",
     "@discordjs/rest": "^2.5.1",
-    "discord-api-types": "^0.37.120"
+    "discord-api-types": "^0.38.22"
   }
 }
