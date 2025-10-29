@@ -12,13 +12,12 @@
     "sync": "bun install --frozen-lockfile --production"
   },
   "dependencies": {
-    "discord.js": "^14.21.0",
-    "@discordjs/builders": "^1.11.3"
+    "discord.js": "^14.24.1",
+    "@discordjs/builders": "^1.13.0"
   },
   "devDependencies": {
-    "eslint": "^9.33.0",
-    "npm-check-updates": "^17.1.18",
-    "@discordjs/rest": "^2.5.1",
-    "discord-api-types": "^0.37.120"
+    "eslint": "^9.38.0",
+    "@discordjs/rest": "^2.6.0",
+    "discord-api-types": "^0.38.31"
   }
 }
