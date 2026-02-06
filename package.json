@@ -5,8 +5,8 @@
   "license": "MIT",
   "private": true,
   "scripts": {
-    "start": "docker compose up --build --force-recreate",
-    "stop": "docker compose kill && docker compose rm -f",
+    "start": "podman compose up --build --force-recreate",
+    "stop": "podman compose kill && docker compose rm -f",
     "reload": "bun run start",
     "commands": "bun deploy-commands.js",
     "sync": "bun install --frozen-lockfile --production"
@@ -18,6 +18,6 @@
   "devDependencies": {
     "eslint": "^9.39.2",
     "@discordjs/rest": "^2.6.0",
-    "discord-api-types": "^0.38.37"
+    "discord-api-types": "^0.38.38"
   }
 }
