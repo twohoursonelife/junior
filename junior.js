@@ -1,9 +1,9 @@
 // Thanks to https://github.com/discordjs/guide for base code samples.
 
 const fs = require('fs');
-const { Client, Collection, GatewayIntentBits, MessageFlags } = require('discord.js');
+const { Client, Collection, MessageFlags } = require('discord.js');
 
-const client = new Client({ intents: [GatewayIntentBits.Guilds, GatewayIntentBits.GuildMessages, GatewayIntentBits.MessageContent] });
+const client = new Client({ intents: [] });
 
 client.commands = new Collection();
 const commandFiles = fs.readdirSync('./commands').filter(file => file.endsWith('.js'));
